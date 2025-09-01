@@ -19,7 +19,16 @@
       "Read(/C:\\Work\\Experimental/**)",
       "Bash(dotnet build:*)",
       "Bash(dotnet tool install:*)",
-      "Bash(dotenvx:*)"
+      "Bash(dotenvx:*)",
+      "Bash(find:*)",
+      "Bash(dotnet test)",
+      "Bash(dotnet pack:*)",
+      "Bash(dotnet clean:*)",
+      "Bash(dotnet nuget verify:*)",
+      "Bash(unzip:*)",
+      "Bash(dotnet test:*)",
+      "Bash(tree:*)",
+      "Bash(dir)"
     ],
     "deny": [],
     "ask": []

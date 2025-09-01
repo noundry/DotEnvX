@@ -1,4 +1,4 @@
-# DotEnvX API Documentation
+# Noundry.DotEnvX API Documentation
 
 ## Table of Contents
 
@@ -13,7 +13,7 @@
 
 ## DotEnv Static Class
 
-The main entry point for the DotEnvX library.
+The main entry point for the Noundry.DotEnvX library.
 
 ### Config
 
@@ -346,6 +346,8 @@ public interface IDotEnvService
 
 **Registration:**
 ```csharp
+using Noundry.DotEnvX.Core.Extensions;
+
 // In Program.cs or Startup.cs
 builder.Services.AddDotEnvX(options =>
 {
@@ -375,6 +377,8 @@ public class MyService
 
 ## Dependency Injection
 
+> **Note:** All dependency injection functionality is included in the core `Noundry.DotEnvX` package under the `Noundry.DotEnvX.Core.Extensions` namespace. The DI extensions have been consolidated into the main package - no separate package installation required.
+
 ### ASP.NET Core Integration
 
 **Configuration Builder Extension:**
@@ -386,6 +390,8 @@ public static IConfigurationBuilder AddDotEnvX(
 
 **Example:**
 ```csharp
+using Noundry.DotEnvX.Core.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add to configuration pipeline
@@ -408,6 +414,8 @@ public static IServiceCollection AddDotEnvX(
 
 **Example:**
 ```csharp
+using Noundry.DotEnvX.Core.Extensions;
+
 // Register services
 builder.Services.AddDotEnvX(options =>
 {
@@ -439,7 +447,7 @@ public class WeatherController : ControllerBase
 
 ### ECIES Encryption
 
-DotEnvX uses Elliptic Curve Integrated Encryption Scheme (ECIES) with:
+Noundry.DotEnvX uses Elliptic Curve Integrated Encryption Scheme (ECIES) with:
 - **Curve:** secp256k1
 - **Key Derivation:** SHA-256
 - **Cipher:** AES-256-GCM
@@ -647,7 +655,7 @@ DotEnv.Config(new DotEnvOptions
 DotNetEnv.Env.Load();
 var value = DotNetEnv.Env.GetString("KEY");
 
-// New (DotEnvX)
+// New (Noundry.DotEnvX)
 DotEnv.Config();
 var value = Environment.GetEnvironmentVariable("KEY");
 ```
@@ -667,7 +675,7 @@ builder.Configuration
 
 ## Version Compatibility
 
-| DotEnvX Version | .NET Version | Status |
+| Noundry.DotEnvX Version | .NET Version | Status |
 |-----------------|--------------|--------|
 | 1.0.0+          | .NET 8.0+    | ✅ Fully Supported |
 | 1.0.0+          | .NET 6.0-7.0 | ⚠️ Should work (untested) |
