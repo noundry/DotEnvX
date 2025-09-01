@@ -1,13 +1,13 @@
-# DotEnvX for .NET
+# Noundry.DotEnvX for .NET
 
-[![NuGet](https://img.shields.io/nuget/v/DotEnvX.svg)](https://www.nuget.org/packages/DotEnvX/)
+[![NuGet](https://img.shields.io/nuget/v/Noundry.DotEnvX.svg)](https://www.nuget.org/packages/Noundry.DotEnvX/)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-8.0-512BD4.svg)](https://dotnet.microsoft.com)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/plsft/DotEnvX/dotnet.yml?branch=main)](https://github.com/plsft/DotEnvX/actions)
 
 A secure, feature-complete port of [dotenvx](https://github.com/dotenvx/dotenvx) for modern .NET applications. Load environment variables from `.env` files with support for **encryption**, **multiple environments**, and **variable expansion**.
 
-## 🌟 Why DotEnvX?
+## 🌟 Why Noundry.DotEnvX?
 
 - **🔐 Built-in Encryption** - Protect sensitive data with ECIES encryption
 - **🛠️ CLI Tool** - Powerful command-line interface for managing .env files
@@ -20,20 +20,31 @@ A secure, feature-complete port of [dotenvx](https://github.com/dotenvx/dotenvx)
 
 ### Core Library
 ```bash
-dotnet add package DotEnvX
-```
-
-### ASP.NET Core Integration
-```bash
-dotnet add package DotEnvX.Extensions.DependencyInjection
+dotnet add package Noundry.DotEnvX
 ```
 
 ### CLI Tool (Global)
 ```bash
-dotnet tool install --global DotEnvX.Tool
+dotnet tool install --global Noundry.DotEnvX.Tool
 ```
 
+> **Note:** The `Noundry.DotEnvX` package includes both core functionality and ASP.NET Core integration. No separate packages needed!
+
 ## 🚀 Quick Start
+
+### Try the Samples
+
+```bash
+cd samples/DotEnvX.Samples
+dotnet run
+```
+
+The samples project contains 9 comprehensive examples demonstrating:
+- Basic usage and advanced options
+- Parsing and encryption/decryption
+- Dependency injection and configuration provider
+- Variable expansion and multiple files
+- Example generation
 
 ### Basic Usage
 
@@ -47,7 +58,7 @@ PORT=3000
 
 Load in your application:
 ```csharp
-using DotEnvX.Core;
+using Noundry.DotEnvX.Core;
 
 // Load .env file
 DotEnv.Config();
@@ -60,7 +71,7 @@ Console.WriteLine($"Database: {dbUrl}");
 ### ASP.NET Core Integration
 
 ```csharp
-using DotEnvX.Extensions.DependencyInjection;
+using Noundry.DotEnvX.Core.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -291,7 +302,7 @@ jobs:
         DOTENV_PRIVATE_KEY: ${{ secrets.DOTENV_PRIVATE_KEY }}
       run: |
         echo "DOTENV_PRIVATE_KEY=$DOTENV_PRIVATE_KEY" > .env.keys
-        dotnet tool install --global DotEnvX.Tool
+        dotnet tool install --global Noundry.DotEnvX.Tool
         dotenvx decrypt --output .env
     
     - name: Build
@@ -383,20 +394,21 @@ dotnet test --filter "FullyQualifiedName~Encryption"
 ## 📦 Package Structure
 
 ```
-DotEnvX/
-├── DotEnvX.Core/                          # Core library
-│   ├── Parser/                            # .env file parser
-│   ├── Encryption/                        # ECIES encryption
-│   ├── Services/                          # Core services
-│   └── Models/                            # Data models
-├── DotEnvX.Extensions.DependencyInjection/ # ASP.NET Core integration
-│   ├── ServiceCollectionExtensions.cs     # DI extensions
-│   └── DotEnvConfigurationSource.cs       # IConfiguration provider
-├── DotEnvX.Tool/                          # CLI tool
-│   └── Program.cs                         # Command definitions
-├── DotEnvX.Samples/                       # Sample applications
-└── DotEnvX.Tests/                         # Unit tests
+Noundry.DotEnvX/
+├── src/
+│   ├── DotEnvX.Core/          # Core library with DI extensions  
+│   ├── DotEnvX.CLI/           # CLI application
+│   └── DotEnvX.Tool/          # Global CLI tool
+├── tests/
+│   └── DotEnvX.Tests/         # Unit tests
+├── samples/
+│   └── DotEnvX.Samples/       # Comprehensive sample application
+└── docs/                      # Documentation
 ```
+
+**NuGet Packages:**
+- **`Noundry.DotEnvX`** - Core library with DI extensions (consolidated)
+- **`Noundry.DotEnvX.Tool`** - Global CLI tool
 
 ## 🤝 Contributing
 
@@ -441,22 +453,22 @@ This project is licensed under the BSD 3-Clause License - see the [LICENSE](LICE
 
 ## 🔗 Links
 
-- [NuGet Package](https://www.nuget.org/packages/DotEnvX/)
-- [CLI Tool Package](https://www.nuget.org/packages/DotEnvX.Tool/)
+- [NuGet Package](https://www.nuget.org/packages/Noundry.DotEnvX/)
+- [CLI Tool Package](https://www.nuget.org/packages/Noundry.DotEnvX.Tool/)
 - [Documentation](https://github.com/plsft/DotEnvX/wiki)
 - [Original dotenvx](https://github.com/dotenvx/dotenvx)
 - [Report Issues](https://github.com/plsft/DotEnvX/issues)
 - [Discussions](https://github.com/plsft/DotEnvX/discussions)
 
-## 🆚 DotEnvX vs dotnet user-secrets
+## 🆚 Noundry.DotEnvX vs dotnet user-secrets
 
-### Why Choose DotEnvX?
+### Why Choose Noundry.DotEnvX?
 
-While `dotnet user-secrets` is great for basic development scenarios, DotEnvX provides a comprehensive solution for both development and production environments.
+While `dotnet user-secrets` is great for basic development scenarios, Noundry.DotEnvX provides a comprehensive solution for both development and production environments.
 
 ### Feature Comparison
 
-| Feature | DotEnvX | dotnet user-secrets |
+| Feature | Noundry.DotEnvX | dotnet user-secrets |
 |---------|---------|---------------------|
 | **Development secrets** | ✅ Excellent | ✅ Excellent |
 | **Production support** | ✅ Full support | ❌ Dev only |
@@ -472,7 +484,7 @@ While `dotnet user-secrets` is great for basic development scenarios, DotEnvX pr
 | **File format** | ✅ Industry standard | ⚠️ JSON only |
 | **VS integration** | ⚠️ Via extension | ✅ Built-in |
 
-### Key Advantages of DotEnvX
+### Key Advantages of Noundry.DotEnvX
 
 1. **Production-Ready Encryption**: ECIES encryption allows safe storage of encrypted secrets in source control, with separate key management
 2. **Universal Format**: .env files work across all platforms and languages, perfect for polyglot teams
@@ -482,7 +494,7 @@ While `dotnet user-secrets` is great for basic development scenarios, DotEnvX pr
 
 ### When to Use Each
 
-**Use DotEnvX when you need:**
+**Use Noundry.DotEnvX when you need:**
 - Production-grade secret management
 - Encrypted secrets in source control
 - Multi-environment deployments
@@ -502,7 +514,7 @@ While `dotnet user-secrets` is great for basic development scenarios, DotEnvX pr
 // Before (user-secrets)
 builder.Configuration.AddUserSecrets<Program>();
 
-// After (DotEnvX) 
+// After (Noundry.DotEnvX) 
 builder.Configuration.AddDotEnvX(options =>
 {
     options.Path = new[] { ".env", ".env.local" };

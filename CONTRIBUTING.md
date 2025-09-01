@@ -72,24 +72,30 @@ dotnet test
 
 4. Install the CLI tool locally:
 ```bash
-cd DotEnvX.Tool
+cd src/DotEnvX.Tool
 dotnet pack
-dotnet tool install --global --add-source ./nupkg DotEnvX.Tool
+dotnet tool install --global --add-source ./nupkg Noundry.DotEnvX.Tool
 ```
 
 ## Project Structure
 
 ```
-DotEnvX/
-├── DotEnvX.Core/                          # Core library
-│   ├── Parser/                            # .env file parser
-│   ├── Encryption/                        # Encryption implementation
-│   ├── Services/                          # Core services
-│   └── Models/                            # Data models
-├── DotEnvX.Extensions.DependencyInjection/ # ASP.NET Core integration
-├── DotEnvX.Tool/                          # CLI tool
-├── DotEnvX.Samples/                       # Sample applications
-└── DotEnvX.Tests/                         # Unit tests
+Noundry.DotEnvX/
+├── src/
+│   ├── DotEnvX.Core/                      # Main library (includes DI extensions)
+│   │   ├── Parser/                        # .env file parser
+│   │   ├── Encryption/                    # Encryption implementation
+│   │   ├── Services/                      # Core services
+│   │   ├── Models/                        # Data models
+│   │   └── Extensions/                    # ASP.NET Core integration
+│   ├── DotEnvX.CLI/                       # CLI application
+│   └── DotEnvX.Tool/                      # Global CLI tool
+├── tests/
+│   └── DotEnvX.Tests/                     # Unit tests
+├── samples/
+│   ├── DotEnvX.Samples/                   # Sample applications
+│   └── Examples/                          # Additional examples
+└── docs/                                  # Documentation
 ```
 
 ## Coding Guidelines

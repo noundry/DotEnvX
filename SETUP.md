@@ -86,13 +86,18 @@ To publish to NuGet.org:
 ## Project Structure
 
 ```
-DotEnvX/
-├── DotEnvX.Core/                    # Core library
-├── DotEnvX.Extensions.DependencyInjection/  # DI extensions
-├── DotEnvX.CLI/                     # CLI tool
-├── DotEnvX.Samples/                 # Sample applications
-├── DotEnvX.Tests/                   # Unit tests
-├── README.md                        # Documentation
+Noundry.DotEnvX/
+├── src/
+│   ├── DotEnvX.Core/                # Main library (includes DI extensions)
+│   ├── DotEnvX.CLI/                 # CLI application
+│   └── DotEnvX.Tool/                # Global CLI tool
+├── tests/
+│   └── DotEnvX.Tests/               # Unit tests
+├── samples/
+│   ├── DotEnvX.Samples/             # Sample applications
+│   └── Examples/                    # Additional examples
+├── docs/                            # Documentation
+├── README.md                        # Main documentation
 ├── LICENSE                          # BSD-3-Clause
 └── DotEnvX.sln                      # Solution file
 ```
