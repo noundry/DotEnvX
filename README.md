@@ -2,7 +2,7 @@
 
 [![NuGet](https://img.shields.io/nuget/v/Noundry.DotEnvX.svg)](https://www.nuget.org/packages/Noundry.DotEnvX/)
 [![License](https://img.shields.io/badge/license-BSD--3--Clause-blue.svg)](LICENSE)
-[![.NET](https://img.shields.io/badge/.NET-8.0-512BD4.svg)](https://dotnet.microsoft.com)
+[![.NET](https://img.shields.io/badge/.NET-8.0%20%7C%209.0-512BD4.svg)](https://dotnet.microsoft.com)
 [![Build Status](https://img.shields.io/github/actions/workflow/status/plsft/DotEnvX/dotnet.yml?branch=main)](https://github.com/plsft/DotEnvX/actions)
 
 A secure, feature-complete port of [dotenvx](https://github.com/dotenvx/dotenvx) for modern .NET applications. Load environment variables from `.env` files with support for **encryption**, **multiple environments**, and **variable expansion**.

@@ -28,7 +28,8 @@
       "Bash(unzip:*)",
       "Bash(dotnet test:*)",
       "Bash(tree:*)",
-      "Bash(dir)"
+      "Bash(dir)",
+      "Bash(dotnet restore:*)"
     ],
     "deny": [],
     "ask": []
